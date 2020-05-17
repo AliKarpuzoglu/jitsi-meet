@@ -233,12 +233,12 @@ var interfaceConfig = {
     /**
      * Specify mobile app scheme for opening the app from the mobile browser.
      */
-    APP_SCHEME: 'de.hopp-foundation.klassenzimmer',
+    APP_SCHEME: 'de.medienzentrenbw.klassenraum',
 
     /**
      * Specify the Android app package name.
      */
-    ANDROID_APP_PACKAGE: 'de.hopp-foundation.klassenzimmer'
+    ANDROID_APP_PACKAGE: 'de.medienzentrenbw.klassenraum'
 
     /**
      * Override the behavior of some notifications to remain displayed until

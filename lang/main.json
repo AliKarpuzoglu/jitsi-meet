@@ -801,6 +801,7 @@
         "connectCalendarText": "Connect your calendar to view all your meetings in {{app}}. Plus, add {{provider}} meetings to your calendar and start them with one click.",
         "enterRoomTitle": "Start a new meeting",
         "getHelp": "Get help",
+        "medienzentrum":"choose Medienzentrum",
         "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", %, #.",
         "go": "GO",
         "goSmall": "GO",
@@ -823,5 +824,8 @@
     },
     "helpView": {
         "header": "Help center"
+    },
+    "cityView": {
+        "header": "Wähle ein Medienzentrum aus"
     }
 }

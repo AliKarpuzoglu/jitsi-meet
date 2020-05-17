@@ -2,10 +2,12 @@
  * The application's definition of the default color black.
  */
 const BLACK = '#111111';
-const darkerGreen = '#526d32';
-const darkGreen = '#789f47';
-const lightGreen = '#b5e282';
-const lighterGreen = '#e9f3d4';
+const darkerBlue = '#1A3D5C'; // 1A3D5C
+const darkBlue = '#2C689C'; //2C689C
+const lightOrange = '#FF9924'; // status bar and button highlight DF9847
+// const lighterOrange = '#DF9847'; // not used 
+// lightblue accent : 4098E4
+// brighter orange: FF9924
 
 /**
  * The application's color palette.
@@ -22,9 +24,9 @@ export const ColorPalette = {
      * the sake of consistency.
      */
     black: BLACK,
-    blackBlue: darkerGreen,
-    blue: darkGreen,
-    blueHighlight: lightGreen,
+    blackBlue: darkerBlue,
+    blue: darkBlue,
+    blueHighlight: lightOrange,
     buttonUnderlay: '#495258',
     darkGrey: '#555555',
     green: '#40b183',
@@ -34,10 +36,9 @@ export const ColorPalette = {
     transparent: 'rgba(0, 0, 0, 0)',
     warning: 'rgb(215, 121, 118)',
     white: '#FFFFFF',
-    darkerGreen,
-    darkGreen,
-    lightGreen,
-    lighterGreen,
+    darkerBlue,
+    darkBlue,
+    lightOrange,
 
     /**
      * These are colors from the atlaskit to be used on mobile, when needed.

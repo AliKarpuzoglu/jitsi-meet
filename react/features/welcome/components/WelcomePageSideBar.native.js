@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, ScrollView, Text } from 'react-native';
 
 import { Avatar } from '../../base/avatar';
-import { IconInfo, IconSettings, IconHelp } from '../../base/icons';
+import { IconInfo, IconSettings, IconHelp, IconMedienzentrum } from '../../base/icons';
 import { setActiveModalId } from '../../base/modal';
 import {
     getLocalParticipant,
@@ -16,6 +16,8 @@ import {
 } from '../../base/react';
 import { connect } from '../../base/redux';
 import { HELP_VIEW_MODAL_ID } from '../../help';
+import { CITY_VIEW_MODAL_ID } from '../../city-picker';
+
 import { SETTINGS_VIEW_ID } from '../../settings';
 
 import { setSideBarVisible } from '../actions';
@@ -70,6 +72,7 @@ class WelcomePageSideBar extends Component<Props> {
         // Bind event handlers so they are only bound once per instance.
         this._onHideSideBar = this._onHideSideBar.bind(this);
         this._onOpenHelpPage = this._onOpenHelpPage.bind(this);
+        this._onOpenCityPage = this._onOpenCityPage.bind(this);
         this._onOpenSettings = this._onOpenSettings.bind(this);
     }
 
@@ -113,6 +116,10 @@ class WelcomePageSideBar extends Component<Props> {
                             icon = { IconHelp }
                             label = 'welcomepage.getHelp'
                             onPress = { this._onOpenHelpPage } />
+                        <SideBarItem
+                            icon = { IconMedienzentrum }
+                            label = 'welcomepage.medienzentrum'
+                            onPress = { this._onOpenCityPage } />
                     </ScrollView>
                 </SafeAreaView>
             </SlidingView>
@@ -143,6 +150,19 @@ class WelcomePageSideBar extends Component<Props> {
 
         dispatch(setSideBarVisible(false));
         dispatch(setActiveModalId(HELP_VIEW_MODAL_ID));
+    }
+    _onOpenCityPage: () => void;
+
+    /**
+     * Shows the {@link CityView}.
+     *
+     * @returns {void}
+     */
+    _onOpenCityPage() {
+        const { dispatch } = this.props;
+
+        dispatch(setSideBarVisible(false));
+        dispatch(setActiveModalId(CITY_VIEW_MODAL_ID));
     }
 
     _onOpenSettings: () => void;

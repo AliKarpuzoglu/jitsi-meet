@@ -762,6 +762,7 @@
         "roomNameAllowedChars": "Der Meeting-Name sollte keines der folgenden Zeichen enthalten: ?, &, :, ', \", %, #.",
         "go": "Los",
         "goSmall": "Los",
+        "medienzentrum":"Medienzentrum",
         "join": "Beitreten",
         "info": "Informationen",
         "privacy": "Datenschutz",

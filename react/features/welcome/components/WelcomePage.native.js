@@ -22,6 +22,7 @@ import {
     createDesiredLocalTracks,
     destroyLocalTracks
 } from '../../base/tracks';
+import { CityView } from '../../city-picker';
 import { HelpView } from '../../help';
 import { DialInSummary } from '../../invite';
 import { SettingsView } from '../../settings';
@@ -37,6 +38,9 @@ import styles, { PLACEHOLDER_TEXT_COLOR } from './styles';
 import VideoSwitch from './VideoSwitch';
 import WelcomePageLists from './WelcomePageLists';
 import WelcomePageSideBar from './WelcomePageSideBar';
+
+import { CITY_VIEW_MODAL_ID } from '../../city-picker';
+import { setActiveModalId } from '../../base/modal';
 
 /**
  * The native container rendering the welcome page.
@@ -59,6 +63,7 @@ class WelcomePage extends AbstractWelcomePage {
         this._onFieldFocusChange = this._onFieldFocusChange.bind(this);
         this._onShowSideBar = this._onShowSideBar.bind(this);
         this._renderHintBox = this._renderHintBox.bind(this);
+        this._renderCityChooser = this._renderCityChooser.bind(this);
 
         // Specially bind functions to avoid function definition on render.
         this._onFieldBlur = this._onFieldFocusChange.bind(this, false);
@@ -90,6 +95,12 @@ class WelcomePage extends AbstractWelcomePage {
                 response === 'granted'
                     && dispatch(createDesiredLocalTracks(MEDIA_TYPE.VIDEO));
             });
+        }
+
+        console.log(this.props._settings.serverURL)
+        if(!this.props._settings.serverURL){ //first start
+            dispatch(setActiveModalId(CITY_VIEW_MODAL_ID));
+
         }
     }
 
@@ -199,6 +210,33 @@ class WelcomePage extends AbstractWelcomePage {
 
         return null;
     }
+    /**
+     * Renders the selector for the city
+     *
+     * @private
+     * @returns {React$Node}
+     */
+    _renderCityChooser() {
+            const { t } = this.props;
+
+            return (
+                <Animated.View style = { this._getHintBoxStyle() }>
+                    <View style = { styles.hintTextContainer } >
+                        <Text style = { styles.hintText }>
+                            { "Wählen Sie bitte aus, mit welchem Medienzentrum Sie sich verbinden wollen" }
+                        </Text>
+                    </View>
+                    <View>
+
+                    </View>
+                </Animated.View>
+            );
+
+        return null;
+    }
+
+
+
 
     /**
      * Renders the join button.
@@ -286,6 +324,7 @@ class WelcomePage extends AbstractWelcomePage {
                             {
                                 this._renderHintBox()
                             }
+
                         </View>
                     </SafeAreaView>
                     <WelcomePageLists disabled = { this.state._fieldFocused } />
@@ -320,7 +359,7 @@ class WelcomePage extends AbstractWelcomePage {
      */
     _renderWelcomePageModals() {
         return [
-            <HelpView key = 'helpView' />,
+            <CityView key = 'cityView' />,
             <DialInSummary key = 'dialInSummary' />,
             <SettingsView key = 'settings' />
         ];

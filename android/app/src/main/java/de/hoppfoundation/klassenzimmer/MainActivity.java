@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.hoppfoundation.klassenzimmer;
+package de.medienzentrenbw.klassenraum;
 
 import android.content.Intent;
 import android.net.Uri;

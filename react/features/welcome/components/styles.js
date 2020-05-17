@@ -14,6 +14,7 @@ export const SWITCH_THUMB_COLOR = ColorPalette.blueHighlight;
 
 export const SWITCH_UNDER_COLOR = 'rgba(0, 0, 0, 0.4)';
 
+
 /**
  * The default color of text on the WelcomePage.
  */
@@ -286,5 +287,22 @@ export default {
     welcomePage: {
         backgroundColor: ColorPalette.blue,
         overflow: 'hidden'
+    },
+
+    /**
+     *  the style for the CityPicker
+     */
+    cityPicker_main:{
+        backgroundColor:ColorPalette.darkBlue,
+        textAlign:'center',
+    },
+    cityPicker_content:{
+        padding:20,
+    },
+    cityPicker_text:{
+        fontSize:20,
+        color:TEXT_COLOR
+
     }
+    
 };
