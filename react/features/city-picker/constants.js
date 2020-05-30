@@ -1,7 +1,7 @@
 // @flow
 
 export const CITY_VIEW_MODAL_ID = 'cityView';
-
+//TODO: Remove TwoWayMap and use single map
 class TwoWayMap {
     constructor(map) {
        this.map = map;
@@ -18,12 +18,12 @@ class TwoWayMap {
 
 export const city_dict = new TwoWayMap({ 
    "Baden-Baden (Mittelbaden)":"https://jitsi.mz-mittelbaden.de",
-  "Biberach":"https://jitsi.antares.net",
+   "Biberach":"https://jitsi.antares.net",
    "Bruchsal":"https://meet-kmz.landkreis-karlsruhe.de",
    "Calw":"https://jitsi-mzcalw.inweb.de",
    "Crailsheim":"https://jitsi.kmz-sha.de",
    "Emmendingen":"https://jitsi.kmz-emmendingen.de",
-   "Enkreis":"https://konf.mzpe.de",
+   "Enzkreis":"https://konf.mzpe.de",
    "Ettlingen":"https://meet-kmz.landkreis-karlsruhe.de",
    "Freiburg":"https://jitsi.kmzfr.de",
    "Freudenstadt":"https://meet.kmz-fds.de",
@@ -31,24 +31,24 @@ export const city_dict = new TwoWayMap({
    "Heidelberg":"https://jitsi.hopp-foundation.de",
    "Heidenheim":"https://meet.medienzentrum-hdh.de",
    "Heilbronn":"https://meet.kmz-heilbronn.de",
-   "Hohenlohekreis (Künzelsau und Öhringen)":"jitsi.kmz-hok.de",
+   "Hohenlohekreis (Künzelsau und Öhringen)":"https://jitsi.kmz-hok.de",
    "Karlsruhe Land":"https://meet-kmz.landkreis-karlsruhe.de",
    "Karlsruhe Stadt":"https://jitsi.smz-karlsruhe.de",
-   "Konstanz":"jitsi.kmz-kn.de",
-   "Lörrach":"jitsi.kmz-loerrach.net",
-   "Ludwigsburg":"jitsi.kmz-ludwigsburg.de",
+   "Konstanz":"https://jitsi.kmz-kn.de",
+   "Lörrach":"https://jitsi.kmz-loerrach.net",
+   "Ludwigsburg":"https://jitsi.kmz-ludwigsburg.de",
    "Main-Tauber-Kreis":"https://jitsi.kmz-tbb.de",
    "Mannheim":"https://jitsi.hopp-foundation.de",
    "Ostalbkreis":"https://jitsi.kmz-ostalbkreis.de",
    "Pforzheim-Enzkreis":"https://konf.mzpe.de",
    "Rastatt (Mittelbaden)":"https://jitsi.mz-mittelbaden.de",
    "Ravensburg":"https://kmzrv-konferenz.de",
-   "Rems-Murr-Kreis":"https://meet.kreismedienzentrum-rmk.de",
+   "Rems-Murr-Kreis":"https://meet.kmz-rmk.de",
    "Reutlingen":"https://jitsi.kmz-reutlingen.de",
    "Rottweil":"https://videokonferenz.kmz-rw.de",
    "Schwarzwald-Baar":"https://videokonferenz.kmz-sbk.de",
    "Sigmaringen":"https://konferenz.kmz-sigmaringen.de",
-   "Tauberbischofsheim":"jitsi.kmz-tbb.de",
+   "Tauberbischofsheim":"https://jitsi.kmz-tbb.de",
    "Tuttlingen":"https://jitsi.kmz-tuttlingen.de",
-   "Zollernalbkreis":"jitsi.kmz-zak.de"
+   "Zollernalbkreis":"https://jitsi.kmz-zak.de"
 });

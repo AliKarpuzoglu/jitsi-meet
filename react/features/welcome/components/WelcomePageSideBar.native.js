@@ -27,7 +27,7 @@ import styles, { SIDEBAR_AVATAR_SIZE } from './styles';
 /**
  * The URL at which the privacy policy is available to the user.
  */
-const PRIVACY_URL = 'https://www.hopp-foundation.de/informationen/datenschutz.html';
+const PRIVACY_URL = 'https://cloud.medienzentrenbw.de/index.php/s/sBsDj5qzkkFZrEw#pdfviewer';
 
 /**
  * The URL at which the terms (of service/use) are available to the user.

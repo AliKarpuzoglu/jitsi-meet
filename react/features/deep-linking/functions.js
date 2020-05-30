@@ -23,7 +23,7 @@ export function generateDeepLinkingURL() {
     // appears to be a link with an app-specific scheme, not a Universal
     // Link.
 
-    const appScheme = interfaceConfig.APP_SCHEME || 'de.medienzentrenbw.klassenraum';
+    const appScheme = interfaceConfig.APP_SCHEME || 'de.medienzentrenbw.klassenraum1';
     const { href } = window.location;
     const regex = new RegExp(URI_PROTOCOL_PATTERN, 'gi');
 
@@ -32,7 +32,7 @@ export function generateDeepLinkingURL() {
     if (Platform.OS === 'android') {
         // https://meet.jit.si/foo -> meet.jit.si/foo
         const url = href.replace(regex, '').substr(2);
-        const pkg = interfaceConfig.ANDROID_APP_PACKAGE || 'de.medienzentrenbw.klassenraum';
+        const pkg = interfaceConfig.ANDROID_APP_PACKAGE || 'de.medienzentrenbw.klassenraum1';
 
         return `intent://${url}#Intent;scheme=${appScheme};package=${pkg};end`;
     }

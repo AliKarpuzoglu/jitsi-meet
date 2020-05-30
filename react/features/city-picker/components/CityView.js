@@ -53,7 +53,6 @@ class CityView extends PureComponent<Props> {
      */
     render() {
         const { selected,textFieldColor } = this.state;
-        // var textFieldColor = '#FFFFFF'
         let data = [];
       
         
@@ -73,9 +72,9 @@ class CityView extends PureComponent<Props> {
                 style={styles.cityPicker_content} >
                     <Text 
                       style={styles.cityPicker_text}>
-                          Um die richtigen Einstellungen zu übernehmen, wähle bitte dein Medienzentrum aus.</Text>
+                          Um die richtigen Einstellungen zu übernehmen, wähle bitte deinen Land/Stadtkreis aus.</Text>
                     <Dropdown 
-                    label='Wählen Sie Ihr Medienzentrum aus'
+                    label='Land/Stadtkreis'
                     baseColor={textFieldColor}
                     textColor='#FFFFFF'
                     selectedItemColor="#000000"
@@ -84,7 +83,8 @@ class CityView extends PureComponent<Props> {
                     ></Dropdown> 
                     <Button
                     onPress={this._done}
-                    color='#FFFFFF'
+                    color='#FF9924'
+
                     title="Fertig"></Button>
                     </View>
             </JitsiModal>
@@ -99,7 +99,6 @@ class CityView extends PureComponent<Props> {
      */
     _onClose(){
         var { selected,textFieldColor }  = this.state;
-        console.log(city_dict)
         if(selected){
             
             return true;
@@ -113,7 +112,6 @@ class CityView extends PureComponent<Props> {
 
     _done(){
         const { dispatch } = this.props;
-        console.log("done")
         if(this._onClose()){
             dispatch(setActiveModalId())
         }

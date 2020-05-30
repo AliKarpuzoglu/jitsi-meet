@@ -37,7 +37,12 @@
         <category android:name="android.intent.category.DEFAULT" />
         <data android:scheme="de.medienzentrenbw.klassenraum" />
       </intent-filter>
-
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:scheme="de.medienzentrenbw.klassenraum1" />
+        </intent-filter>
     </activity>
   </application>
 </manifest>

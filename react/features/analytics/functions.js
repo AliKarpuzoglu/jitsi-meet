@@ -22,7 +22,7 @@ import logger from './logger';
  */
 export function sendAnalytics(event: Object) {
     try {
-        analytics.sendEvent(event);
+        // analytics.sendEvent(event);
     } catch (e) {
         logger.warn(`Error sending analytics event: ${e}`);
     }
