@@ -18,18 +18,16 @@
 #import "AppDelegate.h"
 #import "FIRUtilities.h"
 #import "Types.h"
+#import "ViewController.h"
 
 @import Fabric;
 @import Firebase;
 @import JitsiMeet;
 
-
 @implementation AppDelegate
 
 -             (BOOL)application:(UIApplication *)application
   didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
- 
 
     JitsiMeet *jitsiMeet = [JitsiMeet sharedInstance];
 
@@ -48,9 +46,17 @@
 #endif
     }];
 
+  
     [jitsiMeet application:application didFinishLaunchingWithOptions:launchOptions];
 
     return YES;
+}
+
+- (void) applicationWillTerminate:(UIApplication *)application {
+    NSLog(@"Application will terminate!");
+    // Try to leave the current meeting graceefully.
+    ViewController *rootController = (ViewController *)self.window.rootViewController;
+    [rootController terminate];
 }
 
 #pragma mark Linking delegate methods

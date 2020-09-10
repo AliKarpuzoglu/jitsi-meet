@@ -26,6 +26,12 @@ export const CALL_INTEGRATION_ENABLED = 'call-integration.enabled';
 export const CLOSE_CAPTIONS_ENABLED = 'close-captions.enabled';
 
 /**
+ * Flag indicating if conference timer should be enabled.
+ * Default: enabled (true).
+ */
+export const CONFERENCE_TIMER_ENABLED = 'conference-timer.enabled';
+
+/**
  * Flag indicating if chat should be enabled.
  * Default: enabled (true).
  */
@@ -86,6 +92,18 @@ export const RECORDING_ENABLED = 'recording.enabled';
  * Default: enabled.
  */
 export const TILE_VIEW_ENABLED = 'tile-view.enabled';
+
+/**
+ * Flag indicating if the toolbox should be always be visible
+ * Default: disabled (false).
+ */
+export const TOOLBOX_ALWAYS_VISIBLE = 'toolbox.alwaysVisible';
+
+/**
+ * Flag indicating if the video share button should be enabled
+ * Default: enabled (true).
+ */
+export const VIDEO_SHARE_BUTTON_ENABLED = 'video-share.enabled';
 
 /**
  * Flag indicating if the welcome page should be enabled.

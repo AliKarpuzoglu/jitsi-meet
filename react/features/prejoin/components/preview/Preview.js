@@ -1,10 +1,11 @@
 // @flow
 
 import React from 'react';
+
 import { Avatar } from '../../../base/avatar';
 import { Video } from '../../../base/media';
 import { connect } from '../../../base/redux';
-import { getActiveVideoTrack, getPrejoinName, isPrejoinVideoMuted } from '../../functions';
+import { getActiveVideoTrack, isPrejoinVideoMuted } from '../../functions';
 
 export type Props = {
 
@@ -41,6 +42,7 @@ function Preview(props: Props) {
         return (
             <div className = 'prejoin-preview'>
                 <div className = 'prejoin-preview-overlay' />
+                <div className = 'prejoin-preview-bottom-overlay' />
                 <Video
                     className = 'flipVideoX prejoin-preview-video'
                     videoTrack = {{ jitsiTrack: videoTrack }} />
@@ -48,6 +50,7 @@ function Preview(props: Props) {
         );
     }
 
+<<<<<<< HEAD:react/features/prejoin/components/preview/Preview.js
     return (
         <div className = 'prejoin-preview prejoin-preview--no-video'>
             <Avatar
@@ -56,6 +59,25 @@ function Preview(props: Props) {
                 size = { 200 } />
         </div>
     );
+=======
+    if (showAvatar) {
+        return (
+            <div
+                className = 'no-video'
+                id = 'preview'>
+                <div className = 'preview-avatar-container'>
+                    <Avatar
+                        className = 'preview-avatar'
+                        displayName = { name }
+                        participantId = 'local'
+                        size = { 200 } />
+                </div>
+            </div>
+        );
+    }
+
+    return null;
+>>>>>>> master:react/features/base/premeeting/components/web/Preview.js
 }
 
 /**
@@ -66,7 +88,6 @@ function Preview(props: Props) {
  */
 function mapStateToProps(state) {
     return {
-        name: getPrejoinName(state),
         videoTrack: getActiveVideoTrack(state),
         showCameraPreview: !isPrejoinVideoMuted(state)
     };
