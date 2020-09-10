@@ -16,7 +16,6 @@ import { LiveStreamButton, RecordButton } from '../../../recording';
 import { RoomLockButton } from '../../../room-lock';
 import { ClosedCaptionButton } from '../../../subtitles';
 import { TileViewButton } from '../../../video-layout';
-
 import HelpButton from '../HelpButton';
 
 import AudioOnlyButton from './AudioOnlyButton';
@@ -25,6 +24,8 @@ import RaiseHandButton from './RaiseHandButton';
 import ToggleCameraButton from './ToggleCameraButton';
 import styles from './styles';
 import MuteEveryoneElseButton from './MuteEveryoneElseButton';
+import KickEveryoneElseButton from './KickEveryoneElseButton';
+
 
 import { jitsiLocalStorage } from 'js-utils';
 
@@ -177,7 +178,10 @@ class OverflowMenu extends PureComponent<Props, State> {
 
         if(isModerator){
             return(
+                <View>
                 <MuteEveryoneElseButton { ...buttonProps } />
+                <KickEveryoneElseButton { ...buttonProps } />
+                </View>
             );
         }
         return

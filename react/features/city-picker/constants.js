@@ -48,6 +48,7 @@ export const city_dict = new TwoWayMap({
    "Rottweil":"https://videokonferenz.kmz-rw.de",
    "Schwarzwald-Baar":"https://videokonferenz.kmz-sbk.de",
    "Sigmaringen":"https://konferenz.kmz-sigmaringen.de",
+   "Stuttgart":"https://jitsi.smz-stuttgart.de",
    "Tauberbischofsheim":"https://jitsi.kmz-tbb.de",
    "Tuttlingen":"https://jitsi.kmz-tuttlingen.de",
    "Zollernalbkreis":"https://jitsi.kmz-zak.de"

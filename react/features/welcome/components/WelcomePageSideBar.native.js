@@ -19,15 +19,15 @@ import { HELP_VIEW_MODAL_ID } from '../../help';
 import { CITY_VIEW_MODAL_ID } from '../../city-picker';
 
 import { SETTINGS_VIEW_ID } from '../../settings';
-
 import { setSideBarVisible } from '../actions';
+
 import SideBarItem from './SideBarItem';
 import styles, { SIDEBAR_AVATAR_SIZE } from './styles';
 
 /**
  * The URL at which the privacy policy is available to the user.
  */
-const PRIVACY_URL = 'https://cloud.medienzentrenbw.de/index.php/s/sBsDj5qzkkFZrEw#pdfviewer';
+const PRIVACY_URL = 'https://alikarpuzoglu.com/medienzentrenbw/datenschutz.html';
 
 /**
  * The URL at which the terms (of service/use) are available to the user.

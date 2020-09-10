@@ -1,15 +1,16 @@
 // @flow
 
+import {
+    checkChromeExtensionsInstalled,
+    isMobileBrowser
+} from '../base/environment/utils';
 import JitsiMeetJS, {
     analytics,
     browser,
     isAnalyticsEnabled
 } from '../base/lib-jitsi-meet';
 import { getJitsiMeetGlobalNS, loadScript } from '../base/util';
-import {
-    checkChromeExtensionsInstalled,
-    isMobileBrowser
-} from '../base/environment/utils';
+
 import { AmplitudeHandler, MatomoHandler } from './handlers';
 import logger from './logger';
 
@@ -26,6 +27,16 @@ export function sendAnalytics(event: Object) {
     } catch (e) {
         logger.warn(`Error sending analytics event: ${e}`);
     }
+}
+
+/**
+ * Return saved amplitude identity info such as session id, device id and user id. We assume these do not change for
+ * the duration of the conference.
+ *
+ * @returns {Object}
+ */
+export function getAmplitudeIdentity() {
+    return analytics.amplitudeIdentityProps;
 }
 
 /**
@@ -89,6 +100,8 @@ export function createHandlers({ getState }: { getState: Function }) {
 
     try {
         const amplitude = new AmplitudeHandler(handlerConstructorOptions);
+
+        analytics.amplitudeIdentityProps = amplitude.getIdentityProps();
 
         handlers.push(amplitude);
     // eslint-disable-next-line no-empty
