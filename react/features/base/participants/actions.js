@@ -1,5 +1,5 @@
-import { set } from '../redux';
 import { NOTIFICATION_TIMEOUT, showNotification } from '../../notifications';
+import { set } from '../redux';
 
 import {
     DOMINANT_SPEAKER_CHANGED,
@@ -416,6 +416,10 @@ export function participantMutedUs(participant) {
  */
 export function participantKicked(kicker, kicked) {
     return (dispatch, getState) => {
+        // HOTFIX, DO NOT LAND ON MASTER. This has been properly fixed in LJM.
+        if (typeof kicker === 'undefined') {
+            return;
+        }
 
         dispatch({
             type: PARTICIPANT_KICKED,

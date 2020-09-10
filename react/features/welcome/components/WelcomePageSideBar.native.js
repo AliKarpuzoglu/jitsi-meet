@@ -19,8 +19,8 @@ import { HELP_VIEW_MODAL_ID } from '../../help';
 import { CITY_VIEW_MODAL_ID } from '../../city-picker';
 
 import { SETTINGS_VIEW_ID } from '../../settings';
-
 import { setSideBarVisible } from '../actions';
+
 import SideBarItem from './SideBarItem';
 import styles, { SIDEBAR_AVATAR_SIZE } from './styles';
 

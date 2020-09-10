@@ -1,6 +1,6 @@
 // @flow
 
-import { jitsiLocalStorage } from 'js-utils';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 import _ from 'lodash';
 import React, { Component, Fragment } from 'react';
 import { I18nextProvider } from 'react-i18next';
@@ -11,11 +11,11 @@ import Thunk from 'redux-thunk';
 import { i18next } from '../../i18n';
 import {
     MiddlewareRegistry,
+    PersistenceRegistry,
     ReducerRegistry,
     StateListenerRegistry
 } from '../../redux';
 import { SoundCollection } from '../../sounds';
-import { PersistenceRegistry } from '../../storage';
 import { appWillMount, appWillUnmount } from '../actions';
 import logger from '../logger';
 
