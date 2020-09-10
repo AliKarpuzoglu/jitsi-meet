@@ -14,6 +14,7 @@ var interfaceConfig = {
      *
      * Note: this mode is experimental and subject to breakage.
      */
+    AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only',
     DISABLE_VIDEO_BACKGROUND: false,
 
     INITIAL_TOOLBAR_TIMEOUT: 20000,

@@ -3,7 +3,7 @@
 import { type Dispatch } from 'redux';
 
 import { translate } from '../../../base/i18n';
-import { IconMicDisabled } from '../../../base/icons';
+import { IconKick } from '../../../base/icons';
 import {
     getLocalParticipant,
     participantUpdated
@@ -11,10 +11,10 @@ import {
 import { connect } from '../../../base/redux';
 import { AbstractButton } from '../../../base/toolbox';
 import type { AbstractButtonProps } from '../../../base/toolbox';
-import { muteAllParticipants } from '../../../remote-video-menu/actions';
-
+import KickEveryoneElsePrompt from './KickEveryoneElsePrompt';
+import { openDialog } from '../../../base/dialog';
 /**
- * The type of the React {@code Component} props of {@link MuteEveryoneElseButton}.
+ * The type of the React {@code Component} props of {@link KickEveryoneElseButton}.
  */
 type Props = AbstractButtonProps & {
 
@@ -31,12 +31,12 @@ type Props = AbstractButtonProps & {
 };
 
 /**
- * An implementation of a button to Mute Everyone
+ * An implementation of a button to Kick Everyone
  */
-class MuteEveryoneElseButton extends AbstractButton<Props, *> {
-    accessibilityLabel = 'toolbar.accessibilityLabel.muteEveryone';
-    icon = IconMicDisabled;
-    label = 'toolbar.accessibilityLabel.muteEveryone';
+class KickEveryoneElseButton extends AbstractButton<Props, *> {
+    accessibilityLabel = 'toolbar.accessibilityLabel.kickEveryone';
+    icon = IconKick;
+    label = 'toolbar.accessibilityLabel.kickEveryone';
 
     /**
      * Handles clicking / pressing the button.
@@ -46,7 +46,7 @@ class MuteEveryoneElseButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        this._muteEveryoneElse();
+        this._kickEveryoneElse();
     }
 
   
@@ -56,14 +56,18 @@ class MuteEveryoneElseButton extends AbstractButton<Props, *> {
      *
      * @returns {void}
      */
-    _muteEveryoneElse() {
-        console.log("mute all")
-        this.props.dispatch(muteAllParticipants([this.props._localParticipant.id]));
+    _kickEveryoneElse() {
+        console.log("kick all")
+        exclude= [this.props._localParticipant.id];
+        this.props.dispatch(openDialog(KickEveryoneElsePrompt, {
+            exclude,
+        }));
+            
 
         
     }
-}
 
+}
 /**
  * Maps part of the Redux state to the props of this component.
  *
@@ -80,4 +84,4 @@ function _mapStateToProps(state, ownProps): Object {
     };
 }
 
-export default translate(connect(_mapStateToProps)(MuteEveryoneElseButton));
+export default translate(connect(_mapStateToProps)(KickEveryoneElseButton));
