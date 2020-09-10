@@ -9,6 +9,7 @@ var interfaceConfig = {
      * Whether or not the blurred video background for large video should be
      * displayed on browsers that can support it.
      */
+    AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only',
     DISABLE_VIDEO_BACKGROUND: false,
 
     INITIAL_TOOLBAR_TIMEOUT: 20000,
