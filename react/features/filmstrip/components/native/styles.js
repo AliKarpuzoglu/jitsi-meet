@@ -15,6 +15,17 @@ export const AVATAR_SIZE = 50;
 export default {
 
     /**
+     * The display name container.
+     */
+    displayNameContainer: {
+        alignSelf: 'center',
+        bottom: 0,
+        flex: 1,
+        margin: 4,
+        position: 'absolute'
+    },
+
+    /**
      * The style of the narrow {@link Filmstrip} version which displays
      * thumbnails in a row at the bottom of the screen.
      */
@@ -83,6 +94,15 @@ export default {
         overflow: 'hidden',
         position: 'relative',
         width: 80
+    },
+
+    moreInfoButton:{
+        width:20,
+        height:20,
+        borderColor: '#424242',
+        borderRadius: 4,
+        borderStyle: 'solid',
+        borderWidth: 1
     },
 
     /**

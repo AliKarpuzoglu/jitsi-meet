@@ -19,17 +19,18 @@
 #import "FIRUtilities.h"
 #import "Types.h"
 #import "ViewController.h"
+#import "Digitales_Klassenzimmer-Swift.h"
 
 @import Fabric;
 @import Firebase;
 @import JitsiMeet;
+@import ReplayKit;
 
 @implementation AppDelegate
 
 -             (BOOL)application:(UIApplication *)application
   didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     JitsiMeet *jitsiMeet = [JitsiMeet sharedInstance];
-
     jitsiMeet.conferenceActivityType = JitsiMeetConferenceActivityType;
     jitsiMeet.customUrlScheme = @"de.medienzentrenbw.klassenraum1";
     jitsiMeet.universalLinkDomains = @[@"meet.jit.si", @"alpha.jitsi.net", @"beta.meet.jit.si", @"jitsi.hopp-foundation.de",@"jitsi.mannheim.ccc.de"];
@@ -45,8 +46,6 @@
         [builder setFeatureFlag:@"ios.recording.enabled" withBoolean:YES];
 #endif
     }];
-
-  
     [jitsiMeet application:application didFinishLaunchingWithOptions:launchOptions];
 
     return YES;

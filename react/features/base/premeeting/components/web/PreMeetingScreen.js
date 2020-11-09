@@ -2,8 +2,9 @@
 
 import React, { PureComponent } from 'react';
 
-import { AudioSettingsButton, VideoSettingsButton } from '../../../../toolbox';
+import { AudioSettingsButton, VideoSettingsButton } from '../../../../toolbox/components/web';
 
+import ConnectionStatus from './ConnectionStatus';
 import CopyMeetingUrl from './CopyMeetingUrl';
 import Preview from './Preview';
 
@@ -25,9 +26,24 @@ type Props = {
     name?: string,
 
     /**
+     * Indicates whether the avatar should be shown when video is off
+     */
+    showAvatar: boolean,
+
+    /**
+     * Indicates whether the label and copy url action should be shown
+     */
+    showConferenceInfo: boolean,
+
+    /**
      * Title of the screen.
      */
     title: string,
+
+    /**
+     * The 'Skip prejoin' button to be rendered (if any).
+     */
+     skipPrejoinButton?: React$Node,
 
     /**
      * True if the preview overlay should be muted, false otherwise.
@@ -46,31 +62,49 @@ type Props = {
  */
 export default class PreMeetingScreen extends PureComponent<Props> {
     /**
+     * Default values for {@code Prejoin} component's properties.
+     *
+     * @static
+     */
+    static defaultProps = {
+        showAvatar: true,
+        showConferenceInfo: true
+    };
+
+    /**
      * Implements {@code PureComponent#render}.
      *
      * @inheritdoc
      */
     render() {
-        const { name, title, videoMuted, videoTrack } = this.props;
+        const { name, showAvatar, showConferenceInfo, title, videoMuted, videoTrack } = this.props;
 
         return (
             <div
                 className = 'premeeting-screen'
                 id = 'lobby-screen'>
+                <ConnectionStatus />
                 <Preview
                     name = { name }
+                    showAvatar = { showAvatar }
                     videoMuted = { videoMuted }
                     videoTrack = { videoTrack } />
+                {!videoMuted && <div className = 'preview-overlay' />}
                 <div className = 'content'>
-                    <div className = 'title'>
-                        { title }
-                    </div>
-                    <CopyMeetingUrl />
+                    {showConferenceInfo && (
+                        <>
+                            <div className = 'title'>
+                                { title }
+                            </div>
+                            <CopyMeetingUrl />
+                        </>
+                    )}
                     { this.props.children }
                     <div className = 'media-btn-container'>
                         <AudioSettingsButton visible = { true } />
                         <VideoSettingsButton visible = { true } />
                     </div>
+                    { this.props.skipPrejoinButton }
                     { this.props.footer }
                 </div>
             </div>

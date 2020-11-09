@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity} from 'react-native';
 import type { Dispatch } from 'redux';
 
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
@@ -21,7 +21,7 @@ import { getTrackByMediaTypeAndParticipant } from '../../../base/tracks';
 import { ConnectionIndicator } from '../../../connection-indicator';
 import { DisplayNameLabel } from '../../../display-name';
 import { RemoteVideoMenu } from '../../../remote-video-menu';
-import { toggleToolboxVisible } from '../../../toolbox';
+import { toggleToolboxVisible } from '../../../toolbox/actions.native';
 
 import AudioMutedIndicator from './AudioMutedIndicator';
 import DominantSpeakerIndicator from './DominantSpeakerIndicator';
@@ -29,6 +29,7 @@ import ModeratorIndicator from './ModeratorIndicator';
 import RaisedHandIndicator from './RaisedHandIndicator';
 import VideoMutedIndicator from './VideoMutedIndicator';
 import styles, { AVATAR_SIZE } from './styles';
+import MoreOptionsIndicator from './MoreOptionsIndicator';
 
 /**
  * Thumbnail component's property types.
@@ -148,8 +149,9 @@ function Thumbnail(props: Props) {
             ] }
             touchFeedback = { false }>
 
+
             <ParticipantView
-                avatarSize = { AVATAR_SIZE }
+                avatarSize = { tileView ? AVATAR_SIZE * 1.5 : AVATAR_SIZE }
                 disableVideo = { isScreenShare || participant.isFakeParticipant }
                 participantId = { participantId }
                 style = { _styles.participantViewStyle }
@@ -157,27 +159,40 @@ function Thumbnail(props: Props) {
                 tintStyle = { _styles.activeThumbnailTint }
                 zOrder = { 1 } />
 
-            { renderDisplayName && <DisplayNameLabel participantId = { participantId } /> }
+            { renderDisplayName && <Container style = { styles.displayNameContainer }>
+                <DisplayNameLabel participantId = { participantId } />
+            </Container> }
 
             { renderModeratorIndicator
                 && <View style = { styles.moderatorIndicatorContainer }>
                     <ModeratorIndicator />
                 </View>}
-
-            { !participant.isFakeParticipant && <View
-                style = { [
+                
+            { !participant.isFakeParticipant && 
+           <TouchableOpacity 
+           onPress={ participant.local ? undefined : _onShowRemoteVideoMenu}  
+     style = { [
                     styles.thumbnailTopIndicatorContainer,
-                    styles.thumbnailTopLeftIndicatorContainer
-                ] }>
-                <RaisedHandIndicator participantId = { participant.id } />
+                    styles.thumbnailTopLeftIndicatorContainer,
+                  styles.moreInfoButton 
+                ] } >
+                    <View>
+                 <MoreOptionsIndicator/>
+
                 { renderDominantSpeakerIndicator && <DominantSpeakerIndicator /> }
-            </View> }
+                </View>
+
+
+            </TouchableOpacity>
+}
 
             { !participant.isFakeParticipant && <View
                 style = { [
                     styles.thumbnailTopIndicatorContainer,
                     styles.thumbnailTopRightIndicatorContainer
                 ] }>
+                <RaisedHandIndicator participantId = { participant.id } />
+
                 <ConnectionIndicator participantId = { participant.id } />
             </View> }
 

@@ -7,9 +7,13 @@ import { appNavigate } from '../../app/actions';
 import { disconnect } from '../../base/connection';
 import { translate } from '../../base/i18n';
 import { connect } from '../../base/redux';
-import { AbstractHangupButton } from '../../base/toolbox';
-import type { AbstractButtonProps } from '../../base/toolbox';
+import { AbstractHangupButton } from '../../base/toolbox/components';
+import type { AbstractButtonProps } from '../../base/toolbox/components';
+const {ScreenShareController} =  require('./native/IOSRecordButton');
 import { jitsiLocalStorage } from '@jitsi/js-utils';
+import { Platform } from 'react-native';
+
+
 /**
  * The type of the React {@code Component} props of {@link HangupButton}.
  */
@@ -43,8 +47,12 @@ class HangupButton extends AbstractHangupButton<Props, *> {
         super(props);
 
         this._hangup = _.once(() => {
+            if (Platform.OS == 'ios') {
+                this.props.dispatch({ type: 'END_SCREEN_SHARING' });
+                ScreenShareController.stopRecording();
+            }
             sendAnalytics(createToolbarEvent('hangup'));
-            jitsiLocalStorage.removeItem('sessionId'); // we want to force teachers to re enter the password
+            jitsiLocalStorage.removeItem('showScreenshare')
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
                 this.props.dispatch(appNavigate(undefined));

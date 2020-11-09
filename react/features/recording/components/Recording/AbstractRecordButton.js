@@ -11,10 +11,7 @@ import {
     getLocalParticipant,
     isLocalParticipantModerator
 } from '../../../base/participants';
-import {
-    AbstractButton,
-    type AbstractButtonProps
-} from '../../../base/toolbox';
+import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { getActiveSession } from '../../functions';
 
 import { StartRecordingDialog, StopRecordingDialog } from './_';
@@ -87,6 +84,10 @@ export default class AbstractRecordButton<P: Props> extends AbstractButton<P, *>
                 type: JitsiRecordingConstants.mode.FILE
             }));
 
+        console.log(`_isRecordingRunning ${_isRecordingRunning}`);
+        if (!_isRecordingRunning) {
+            
+        }
         dispatch(openDialog(
             _isRecordingRunning ? StopRecordingDialog : StartRecordingDialog
         ));
