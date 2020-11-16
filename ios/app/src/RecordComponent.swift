@@ -38,7 +38,7 @@ class RecordComponent: RCTViewManager {
     if #available(iOS 12.0, *) {
       let pickerView = CustomBroadcastPickerView(
                frame: CGRect(x: 0, y: 0, width: 200, height: 52))
-      pickerView.preferredExtension = "de.hopp-foundation.klassenzimmer.ScreenRecorderHopp"
+      pickerView.preferredExtension = "de.medienzentrenbw.klassenraum1.ScreenRecorder"
       pickerView.showsMicrophoneButton = false
       pickerView.translatesAutoresizingMaskIntoConstraints = false
       if let button = pickerView.subviews.first as? UIButton {

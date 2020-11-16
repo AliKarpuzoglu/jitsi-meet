@@ -6,7 +6,7 @@
 
 #import "CustomRTCVideoCapturer.h"
 
-#import "Digitales_Klassenzimmer-Swift.h"
+#import "Medienzentrum_Klassenraum-Swift.h"
 
 @import WebRTC;
 @import Socket;

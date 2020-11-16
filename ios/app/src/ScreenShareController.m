@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTConvert.h>
 #import "ScreenShareController.h"
-#import "Digitales_Klassenzimmer-Swift.h"
+#import "Medienzentrum_Klassenraum-Swift.h"
 
 
 @implementation ScreenShareController

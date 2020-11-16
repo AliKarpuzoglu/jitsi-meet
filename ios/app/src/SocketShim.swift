@@ -59,7 +59,7 @@ import CoreImage
               SocketShim.connSocket = try Socket.create(family: Socket.ProtocolFamily.unix, proto: Socket.SocketProtocol.unix)
             }
             if sockSig == nil {
-              let socketFD = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.de.hopp-foundation.screenrecording")
+              let socketFD = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.de.medienzentrenbw.screenrecording")
               let filePath = socketFD?.absoluteURL.appendingPathComponent("socketFDNN", isDirectory: false)
               sockSig = try Socket.Signature.init(socketType: Socket.SocketType.stream, proto: Socket.SocketProtocol.unix, path: filePath?.path ?? "")!
             }
