@@ -54,12 +54,13 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Wenn Meetings in deinen Kalender eingetragen werden sollen</string>
+	
 	<key>NSCameraUsageDescription</key>
 	<string>Nehme mit Video an Meetings teil</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Nehme mit Ton an Meetings teil.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Local network is used for establishing Peer-to-Peer connections.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>Medienzentrum Klassenraum.ios.conference</string>
@@ -89,7 +90,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>firebase_crashlytics_collection_enabled</key>
+	<key>FirebaseCrashlyticsCollectionEnabled</key>
 	<string>false</string>
 </dict>
 </plist>

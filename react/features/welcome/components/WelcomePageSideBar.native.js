@@ -32,7 +32,7 @@ const PRIVACY_URL = 'https://alikarpuzoglu.com/medienzentrenbw/datenschutz.html'
 /**
  * The URL at which the terms (of service/use) are available to the user.
  */
-const TERMS_URL = 'https://jitsi.org/meet/terms';
+const TERMS_URL = 'https://www.hopp-foundation.de/schule/unterstuetzung/videokonferenztool-jitsi/';
 
 type Props = {
 
