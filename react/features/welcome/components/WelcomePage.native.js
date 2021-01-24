@@ -24,6 +24,7 @@ import {
 } from '../../base/tracks';
 import { CityView } from '../../city-picker';
 import { HelpView } from '../../help';
+import { ClosingView } from '../../closingpage/components';//TODO: why do we need ocmponents
 import { DialInSummary } from '../../invite';
 import { SettingsView } from '../../settings';
 import { setSideBarVisible } from '../actions';
@@ -411,6 +412,8 @@ class WelcomePage extends AbstractWelcomePage {
      */
     _renderWelcomePageModals() {
         return [
+            <HelpView key = 'helpView' />,
+            <ClosingView key = 'closingView' />,
             <CityView key = 'cityView' />,
             <DialInSummary key = 'dialInSummary' />,
             <SettingsView key = 'settings' />
