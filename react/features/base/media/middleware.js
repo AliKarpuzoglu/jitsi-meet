@@ -77,10 +77,10 @@ MiddlewareRegistry.register(store => next => action => {
  * @returns {Object} The value returned by {@code next(action)}.
  */
 function _appStateChanged({ dispatch, getState }, next, action) {
-    // const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
-    // if (localVideo && localVideo.videoType === 'desktop') {
-    //     return next(action);
-    // }
+    const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
+    if (localVideo && localVideo.videoType === 'desktop') {
+        return next(action);
+    }
     console.log('appstatechanged')
     if (navigator.product === 'ReactNative') {
         const { appState } = action;

@@ -529,7 +529,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  Amplitude-iOS: 2ad4d7270c99186236c1272a3a9425463b1ae1a7
   BlueSocket: 1acd943acb07b55905291d608649fcfbf8cbd57d
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872

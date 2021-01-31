@@ -16,7 +16,7 @@ class TwoWayMap {
     revGet(key) { return this.reverseMap[key]; }
 }
 
-export const city_dict = new TwoWayMap({ 
+export const city_dict = new TwoWayMap({ "Alb-Donau-Kreis":"https://meet.kreismedienzentrum-ulm.de",
    "Baden-Baden (Mittelbaden)":"https://jitsi.mz-mittelbaden.de",
    "Biberach":"https://jitsi.antares.net",
    "Bruchsal":"https://meet-kmz.landkreis-karlsruhe.de",
