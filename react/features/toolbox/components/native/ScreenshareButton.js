@@ -79,9 +79,9 @@ function _mapStateToProps(state, ownProps): Object {
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
     var visible_generally = true
 
-    if (MODERATOR_KEYS){
         visible_generally = visible_generally &&((isModerator && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'))
     }
+    if (MODERATOR_KEYS){
     return {
         _localParticipant,
         visible: visible_generally

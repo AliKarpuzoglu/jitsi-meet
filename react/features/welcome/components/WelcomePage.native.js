@@ -415,6 +415,7 @@ class WelcomePage extends AbstractWelcomePage {
             <HelpView key = 'helpView' />,
             <ClosingView key = 'closingView' />,
             <CityView key = 'cityView' />,
+            <ClosingView key = 'closingView' />,
             <DialInSummary key = 'dialInSummary' />,
             <SettingsView key = 'settings' />
         ];
